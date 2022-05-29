@@ -19,6 +19,7 @@ function App() {
           <Route path="/" exact>
             <Users />
           </Route>
+          {/* See the UserPlaces components to see how route parameters are consumed */}
           <Route path="/:userId/places" exact>
             <UserPlaces/>
           </Route>

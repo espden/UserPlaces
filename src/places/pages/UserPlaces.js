@@ -1,6 +1,11 @@
 import React from 'react';
 import PlaceList from '../components/PlaceList';
 
+/* We need the method useParams() from react-router-dom to access the route parameters */
+import { useParams } from 'react-router-dom';
+
+
+
 const DUMMY_PLACES = [
     {
         id:'p1',
@@ -29,8 +34,10 @@ const DUMMY_PLACES = [
 ];
 
 function UserPlaces(props) {
-
-    return <PlaceList items={DUMMY_PLACES}/>
+    /* Here is where we get the router parameter defined in the router in App.js */
+    const userId = useParams().userId;
+    const loadedPlaces = DUMMY_PLACES.filter(place => place.creator === userId);
+    return <PlaceList items={loadedPlaces}/>
 }
 
 export default UserPlaces;
